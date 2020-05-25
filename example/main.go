@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
-	"mangadex"
+	"path"
+
+	"github.com/manga-community/mangadex"
 )
 
 func main() {
@@ -17,6 +19,9 @@ func main() {
 		return
 	}
 	fmt.Println(len(links))
+	for _, element := range links {
+		fmt.Println(path.Base(element))
+	}
 
 	// res, err := md.GetInfo("1")
 	// if err != nil {
