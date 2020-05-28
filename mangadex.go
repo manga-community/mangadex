@@ -6,8 +6,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strconv"
-
-	"github.com/mmcdole/gofeed"
 )
 
 type Mangadex struct {

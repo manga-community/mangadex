@@ -6,11 +6,11 @@ import (
 	"net/http"
 )
 
-type Response struct {
-	Channel Channel `xml:"channel"`
+type FeedResponse struct {
+	Channel FeedChannel `xml:"channel"`
 }
 
-type Channel struct {
+type FeedChannel struct {
 	Items []FeedItem `xml:"item"`
 }
 
@@ -32,7 +32,7 @@ func (mangadex *Mangadex) Latest(token string) ([]FeedItem, error) {
 	}
 
 	data, err := ioutil.ReadAll(res.Body)
-	var rss Response
+	var rss FeedResponse
 	err = xml.Unmarshal(data, &rss)
 	if err != nil {
 		return nil, err
