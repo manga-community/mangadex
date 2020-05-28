@@ -21,21 +21,6 @@ func Initilize() *Mangadex {
 	return &mangadex
 }
 
-func (mangadex *Mangadex) Latest(token string) ([]string, error) {
-	fp := gofeed.NewParser()
-	feed, err := fp.ParseURL("https://mangadex.org/rss/" + token)
-	if err != nil {
-		return nil, err
-	}
-
-	var Links []string
-	for _, item := range feed.Items {
-		Links = append(Links, item.Link)
-	}
-
-	return Links, nil
-}
-
 func (mangadex *Mangadex) GetInfo(id string) (*Manga, error) {
 	url := "https://mangadex.org/api/manga/" + id
 
